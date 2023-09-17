@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Display</title>
+</head>
+<body>
+    <!-- Table 1 -->
+    <h2>Table 1</h2>
+    <table border="1">
+        <tr>
+            <th>Index</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>A1</td>
+            <td>41</td>
+        </tr>
+        <tr>
+            <td>A2</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>A3</td>
+            <td>21</td>
+        </tr>
+        <!-- Add more rows for the remaining data -->
+    </table>
+
+    <!-- Table 2 -->
+    <h2>Table 2</h2>
+    <table border="1">
+        <tr>
+            <th>Category</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Alpha</td>
+            <td id="alpha-expression"></td>
+        </tr>
+        <tr>
+            <td>Beta</td>
+            <td id="beta-expression"></td>
+        </tr>
+        <tr>
+            <td>Charlie</td>
+            <td id="charlie-expression"></td>
+        </tr>
+    </table>
+
+    <script>
+        // Process data from Table 1
+        var data = [
+            { index: "A1", value: 41 },
+            { index: "A2", value: 18 },
+            { index: "A3", value: 21 },
+            { index: "A4", value: 63 },
+            { index: "A5", value: 2 },
+            { index: "A6", value: 53 },
+            { index: "A7", value: 5 },
+            { index: "A8", value: 57 },
+            { index: "A9", value: 60 },
+            { index: "A10", value: 93 },
+            { index: "A11", value: 28 },
+            { index: "A12", value: 3 },
+            { index: "A13", value: 90 },
+            { index: "A14", value: 39 },
+            { index: "A15", value: 80 },
+            { index: "A16", value: 88 },
+            { index: "A17", value: 49 },
+            { index: "A18", value: 60 },
+            { index: "A19", value: 26 },
+            { index: "A20", value: 28 },
+        ];
+
+        // Function to calculate expressions for Table 2
+        function calculateExpressions() {
+            var alphaValue = data.find(item => item.index === "A5").value + data.find(item => item.index === "A20").value;
+            var betaValue = data.find(item => item.index === "A15").value / data.find(item => item.index === "A7").value;
+            var charlieValue = data.find(item => item.index === "A13").value * data.find(item => item.index === "A12").value;
+
+            document.getElementById("alpha-expression").textContent = alphaValue;
+            document.getElementById("beta-expression").textContent = betaValue.toFixed(2);
+            document.getElementById("charlie-expression").textContent = charlieValue;
+        }
+
+        // Call the function to calculate expressions
+        calculateExpressions();
+    </script>
+</body>
+</html>
